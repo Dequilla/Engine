@@ -1,5 +1,15 @@
 ﻿# Add source to this project's executable.
-add_executable(Engine "Main.cpp")
+add_executable(
+    Engine 
+    
+    "Main.cpp"
+
+    "System/Window.hpp"
+    "System/Types.hpp"
+    "System/Assert.hpp"
+
+    "Math/Vector2.hpp"
+ "System/Window.cpp")
 
 target_link_libraries(Engine 
         ${EXTERNAL_LIBRARIES}
