@@ -4,12 +4,14 @@ add_executable(
     
     "Main.cpp"
 
-    "System/Window.hpp"
+    "System/Window.cpp"
+    
     "System/Types.hpp"
     "System/Assert.hpp"
+    "System/Event.cpp"
 
     "Math/Vector2.hpp"
- "System/Window.cpp")
+)
 
 target_link_libraries(Engine 
         ${EXTERNAL_LIBRARIES}

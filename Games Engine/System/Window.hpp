@@ -29,7 +29,7 @@ namespace eng {
 			SDL_GLContext m_context;
 
 		public:
-			Window(std::string title, math::Vector2<int> size, math::Vector2<int> position = {SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED}, Flags flags = Flags::FULLSCREEN);
+			Window(std::string title, math::Vector2<int> size, math::Vector2<int> position = {SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED}, Flags flags = Flags::VISIBLE);
 			~Window();
 		};
 	}

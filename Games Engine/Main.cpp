@@ -3,27 +3,34 @@
 #include <stdio.h>
 
 #include "System/Window.hpp"
+#include "System/Event.hpp"
 
-int main()
-{
+void init() {
     SDL_SetMainReady();
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         printf("error initializing SDL: %s\n", SDL_GetError());
     }
+}
+
+void exit() {
+    SDL_Quit();
+}
+
+int main()
+{
+    init();
     
-    eng::system::Window window("Game engine", { 1280, 720 }, { 100, 100 }, eng::system::Window::Flags::VISIBLE);
+    eng::system::Window window("Game engine", { 1280, 720 });
     
-    SDL_Event e;
+    eng::system::Event e;
     bool quit = false;
     while (!quit) {
-        while (SDL_PollEvent(&e)) {
-            if (e.type == SDL_QUIT) {
-                quit = true;
-            }
+        while (eng::system::Event::poll(e)) {
+            if (e.base.type == eng::system::Event::Type::QUIT) quit = true;
         }
     }
 
-    SDL_Quit();
+    exit();
     return 0;
 }
