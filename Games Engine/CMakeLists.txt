@@ -1,17 +1,27 @@
 ﻿# Add source to this project's executable.
 add_executable(
     Engine 
-    
+
     "Main.cpp"
 
     "System/Window.cpp"
-    
     "System/Types.hpp"
     "System/Assert.hpp"
     "System/Event.cpp"
 
-    "Math/Vector2.hpp"
- "Graphics/Renderer/Renderer.cpp" )
+    "Graphics/Vertex.hpp"
+    "Graphics/Shader.cpp"
+    "Graphics/Material.hpp"
+
+    "Graphics/Renderer/Renderable.hpp"
+    "Graphics/Renderer/RenderCommand.hpp"
+    "Graphics/Renderer/Renderer.cpp" 
+    "Graphics/Renderer/ForwardRenderer3D.cpp"
+    
+    "Graphics/Renderables/Mesh.hpp"
+
+    "../External/glad/src/glad.c"
+)
 
 target_link_libraries(Engine 
         ${EXTERNAL_LIBRARIES}

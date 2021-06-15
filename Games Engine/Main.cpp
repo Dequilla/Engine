@@ -5,6 +5,8 @@
 #include "System/Window.hpp"
 #include "System/Event.hpp"
 
+#include "Graphics/Shader.hpp"
+
 void init() {
     SDL_SetMainReady();
 
@@ -24,6 +26,9 @@ int main(int argc, char** argv)
     eng::system::Window window("Game engine", { 1280, 720 });
     window.setActive();
     window.enableVSYNC(eng::system::Window::VSYNCMode::SYNCHRONIZED);
+
+    eng::graphics::Shader shader;
+    shader.load("test", "Shaders");
 
     eng::system::Event e;
     bool quit = false;

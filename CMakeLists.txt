@@ -43,6 +43,9 @@ include_directories(${OPENGL_INCLUDE_DIRS})
 # GLM
 include_directories(${EXTERNALS}/glm-master/glm)
 
+# Glad
+include_directories(${EXTERNALS}/glad/include)
+
 # External libraries
 set(EXTERNAL_LIBRARIES 
         ${SDL2_LIBRARY}

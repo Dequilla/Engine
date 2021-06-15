@@ -7,11 +7,19 @@ namespace eng {
 		Window::Window(std::string title, glm::ivec2 size, glm::ivec2 position, Flags flags)
 			: m_size(size), m_position(position), m_flags(flags)
 		{
+			SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_COMPATIBILITY);
+			SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
+			SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 6);
+			SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+
 			m_window = SDL_CreateWindow(title.c_str(), m_position.x, m_position.y, m_size.x, m_size.y, flags | Flags::OPENGL | Flags::VISIBLE);
 			massert("Window could not be created", m_window != NULL);
 
 			m_context = SDL_GL_CreateContext(m_window);
 			massert("GL Context could not be created", m_context != NULL);
+
+			this->setActive();
+			massert("Could not initialize glad proc loader", gladLoadGLLoader((GLADloadproc)SDL_GL_GetProcAddress));
 		}
 
 		Window::~Window() {

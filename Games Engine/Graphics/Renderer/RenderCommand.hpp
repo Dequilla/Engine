@@ -1,16 +1,17 @@
 #pragma once
 #include <vector>
+#include <memory>
+
+#include "Renderable.hpp"
 
 namespace eng {
 	namespace graphics {
 
 		struct RenderCommand {
-			/* RENDERABLE */
-			/* TRANSFORM */
-			/* SHADER */
+			std::shared_ptr<Renderable> renderable;
 		};
 
-		using std::vector<RenderCommand> = CommandQueue;
+		typedef std::vector<RenderCommand> CommandQueue;
 
 	}
 }
