@@ -11,7 +11,7 @@ add_executable(
     "System/Event.cpp"
 
     "Math/Vector2.hpp"
-)
+ "Graphics/Renderer/Renderer.cpp" )
 
 target_link_libraries(Engine 
         ${EXTERNAL_LIBRARIES}

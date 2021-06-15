@@ -40,6 +40,9 @@ message("Platform: " ${PLATFORM})
 find_package(OpenGL REQUIRED)
 include_directories(${OPENGL_INCLUDE_DIRS})
 
+# GLM
+include_directories(${EXTERNALS}/glm-master/glm)
+
 # External libraries
 set(EXTERNAL_LIBRARIES 
         ${SDL2_LIBRARY}
